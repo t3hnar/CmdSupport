@@ -1,0 +1,29 @@
+<idea-plugin version="2">
+	<name>CMD Support</name>
+	<description>short description of the plugin</description>
+	<version>1.0</version>
+	<vendor>YourCompany</vendor>
+	<idea-version since-build="8000"/>
+
+	<application-components>
+		<!-- Add your application components here -->
+	</application-components>
+
+	<project-components>
+		<!-- Add your project components here -->
+	</project-components>
+
+	<actions>
+		<!-- Add your actions here -->
+		<action id="TestAction" class="ua.t3hnar.plugins.cmdsupport.TestAction" text="TestAction"
+				description="TestAction">
+			<add-to-group group-id="FileMenu" anchor="first"/>
+		</action>
+	</actions>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<fileTypeFactory id="batchFileTypeFactory"
+						 implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
+
+	</extensions>
+</idea-plugin>
