@@ -22,8 +22,15 @@
 	</actions>
 
 	<extensions defaultExtensionNs="com.intellij">
-		<fileTypeFactory id="batchFileTypeFactory"
+		<fileTypeFactory id="cmdFileTypeFactory"
 						 implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
 
+		<!--<syntaxHighlighter id="cmdSyntaxHighlighterFactory" key="ua.t3hnar.plugins.cmdsupport.lang.CmdLanguage"-->
+		<!--factoryClass="ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdSyntaxHighlighterFactory"/>-->
+		<lang.syntaxHighlighterFactory
+				implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdSyntaxHighlighterFactory"
+				key="CMD"/>
+
+		<lang.parserDefinition implementationClass="ua.t3hnar.plugins.cmdsupport.lang.CmdParserDefinition"/>
 	</extensions>
 </idea-plugin>
