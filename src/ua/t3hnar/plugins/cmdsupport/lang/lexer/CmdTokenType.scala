@@ -2,7 +2,8 @@ package ua.t3hnar.plugins.cmdsupport.lang.lexer
 
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.{IFileElementType, IElementType, TokenSet}
-import ua.t3hnar.plugins.cmdsupport.lang.{CmdLanguage, CmdElementType}
+import ua.t3hnar.plugins.cmdsupport.lang.parser.CmdElementType
+import ua.t3hnar.plugins.cmdsupport.lang.CmdLanguage
 
 /**
  * @author Yaroslav Klymko aka t3hnar

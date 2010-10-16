@@ -3,7 +3,7 @@ package ua.t3hnar.plugins.cmdsupport.lang.parser
 import com.intellij.psi.FileViewProvider
 import com.intellij.openapi.project.Project
 import com.intellij.lang.{ASTNode, ParserDefinition}
-import lexer.{CmdTokenType, CmdLexer}
+import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdLexer, CmdTokenType}
 
 /**
  * @author Yaroslav Klymko aka t3hnar
