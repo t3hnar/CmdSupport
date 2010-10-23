@@ -17,4 +17,6 @@ object CmdTokenType {
 	val WHITESPACE: IElementType = TokenType.WHITE_SPACE
 	val WHITESPACE_SET = TokenSet.create(TokenType.WHITE_SPACE)
 
+	val CALL = new CmdElementType("call")
+
 }

@@ -1,36 +1,35 @@
 <idea-plugin version="2">
-	<name>CMD Support</name>
-	<description>short description of the plugin</description>
-	<version>1.0</version>
-	<vendor>YourCompany</vendor>
-	<idea-version since-build="8000"/>
+    <name>CMD Support</name>
+    <description>short description of the plugin</description>
+    <version>1.0</version>
+    <vendor>YourCompany</vendor>
+    <idea-version since-build="8000"/>
 
-	<application-components>
-		<!-- Add your application components here -->
-	</application-components>
+    <application-components>
+        <!-- Add your application components here -->
+    </application-components>
 
-	<project-components>
-		<!-- Add your project components here -->
-	</project-components>
+    <project-components>
+        <!-- Add your project components here -->
+    </project-components>
 
-	<actions>
-		<!-- Add your actions here -->
-		<action id="TestAction" class="ua.t3hnar.plugins.cmdsupport.TestAction" text="TestAction"
-				description="TestAction">
-			<add-to-group group-id="FileMenu" anchor="first"/>
-		</action>
-	</actions>
+    <actions>
+        <!-- Add your actions here -->
+        <action id="TestAction" class="ua.t3hnar.plugins.cmdsupport.TestAction" text="TestAction"
+                description="TestAction">
+            <add-to-group group-id="FileMenu" anchor="first"/>
+        </action>
+    </actions>
 
-	<extensions defaultExtensionNs="com.intellij">
-		<fileTypeFactory id="cmdFileTypeFactory"
-						 implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
+    <extensions defaultExtensionNs="com.intellij">
+        <colorSettingsPage implementation="ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdColorSettingsPage"/>
 
-		<!--<syntaxHighlighter id="cmdSyntaxHighlighterFactory" key="ua.t3hnar.plugins.cmdsupport.lang.CmdLanguage"-->
-		<!--factoryClass="ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdSyntaxHighlighterFactory"/>-->
-		<lang.syntaxHighlighterFactory
-				implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdSyntaxHighlighterFactory"
-				key="CMD"/>
+        <fileTypeFactory id="cmdFileTypeFactory" implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
 
-		<lang.parserDefinition implementationClass="ua.t3hnar.plugins.cmdsupport.lang.CmdParserDefinition"/>
-	</extensions>
+        <lang.syntaxHighlighterFactory
+                implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdSyntaxHighlighterFactory"
+                key="CMD"/>
+
+        <lang.parserDefinition implementationClass="ua.t3hnar.plugins.cmdsupport.lang.parser.CmdParserDefinition"/>
+    </extensions>
 </idea-plugin>

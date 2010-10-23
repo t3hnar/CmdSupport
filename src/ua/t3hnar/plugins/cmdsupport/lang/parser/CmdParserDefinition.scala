@@ -4,6 +4,7 @@ import com.intellij.psi.FileViewProvider
 import com.intellij.openapi.project.Project
 import com.intellij.lang.{ASTNode, ParserDefinition}
 import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdLexer, CmdTokenType}
+import com.intellij.lang.ParserDefinition.SpaceRequirements
 
 /**
  * @author Yaroslav Klymko aka t3hnar
@@ -23,7 +24,7 @@ class CmdParserDefinition extends ParserDefinition {
 
 	def getCommentTokens = CmdTokenType.COMMENTS
 
-	def spaceExistanceTypeBetweenTokens(node1: ASTNode, node2: ASTNode) = null
+	def spaceExistanceTypeBetweenTokens(node1: ASTNode, node2: ASTNode) = SpaceRequirements.MAY
 
 	def createFile(provider: FileViewProvider) = null
 }

@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project
  * @author Yaroslav Klymko aka t3hnar
  */
 class CmdSyntaxHighlighterFactory extends SyntaxHighlighterFactory {
-	def getSyntaxHighlighter(p1: Project, p2: VirtualFile) = {
-		new CmdSyntaxHighlighter
-	}
+  def getSyntaxHighlighter(project: Project, virtualFile: VirtualFile) = {
+    new CmdSyntaxHighlighter
+  }
 }
