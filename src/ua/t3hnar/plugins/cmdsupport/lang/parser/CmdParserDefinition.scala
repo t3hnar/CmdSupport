@@ -3,28 +3,27 @@ package ua.t3hnar.plugins.cmdsupport.lang.parser
 import com.intellij.psi.FileViewProvider
 import com.intellij.openapi.project.Project
 import com.intellij.lang.{ASTNode, ParserDefinition}
-import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdLexer, CmdTokenType}
-import com.intellij.lang.ParserDefinition.SpaceRequirements
-
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
+
 class CmdParserDefinition extends ParserDefinition {
+
 	def getStringLiteralElements = null
 
-	def getFileNodeType = CmdTokenType.FILE
+	def getFileNodeType = null
 
 	def createElement(node: ASTNode) = null
 
 	def createParser(project: Project) = null
 
-	def getWhitespaceTokens = CmdTokenType.WHITESPACE_SET
+	def getWhitespaceTokens = null
 
-	def createLexer(project: Project) = new CmdLexer
+	def createLexer(project: Project) = null
 
-	def getCommentTokens = CmdTokenType.COMMENTS
+	def getCommentTokens = null
 
-	def spaceExistanceTypeBetweenTokens(node1: ASTNode, node2: ASTNode) = SpaceRequirements.MAY
+	def spaceExistanceTypeBetweenTokens(node1: ASTNode, node2: ASTNode) = null
 
 	def createFile(provider: FileViewProvider) = null
 }

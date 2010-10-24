@@ -11,19 +11,21 @@ import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
  */
 
 class CmdColorSettingsPage extends ColorSettingsPage {
-  def getAdditionalHighlightingTagToDescriptorMap = null
 
-  //TODO add some text
 
-  def getDemoText = "Demo text"
+	def getAdditionalHighlightingTagToDescriptorMap = null
 
-  def getHighlighter = SyntaxHighlighter.PROVIDER.create(CmdFileType, null, null)
+	//TODO add some text
 
-  def getColorDescriptors = Array.empty
+	def getDemoText = "Demo text"
 
-  def getAttributeDescriptors = Array.empty
+	def getHighlighter = SyntaxHighlighter.PROVIDER.create(CmdFileType, null, null)
 
-  def getIcon = CmdIcon.FILE;
+	def getColorDescriptors = Array.empty
 
-  def getDisplayName = Cmd.LANGUAGE_NAME
+	def getAttributeDescriptors = Array.empty
+
+	def getIcon = CmdIcon.FILE;
+
+	def getDisplayName = Cmd.languageName
 }

@@ -15,7 +15,7 @@ object CmdFileType extends LanguageFileType(CmdLanguage) {
 
 	def getDefaultExtension = CMD_EXTENSION
 
-	def getDescription = Cmd.LANGUAGE_DESCRIPTION
+	def getDescription = Cmd.languageDescription
 
-	def getName = Cmd.LANGUAGE_NAME
+	def getName = Cmd.languageName
 }

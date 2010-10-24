@@ -1,0 +1,28 @@
+<project name="Cmd plugin" default="jflex">
+	<property name="jflex.dir" value="jflex"/>
+	<property name="src.dir" value="src"/>
+
+	<property name="package.dir" value="${src.dir}/ua/t3hnar/plugins/cmdsupport/lang/lexer"/>
+	<property name="lexer.file" value="${package.dir}/_CmdLexer.java"/>
+	<property name="lexer.log" value="jflex.log"/>
+	<property name="lexer.source" value="${package.dir}/Cmd.flex"/>
+	<property name="lexer.skeleton" value="${jflex.dir}/idea-flex.skeleton"/>
+	<property name="jflex.jar" value="${jflex.dir}/JFlex.jar"/>
+
+	<target name="clean">
+		<delete file="${lexer.file}~"/>
+		<delete file="${lexer.file}"/>
+		<delete file="${lexer.log}"/>
+	</target>
+
+	<target name="jflex"
+			description="Generate lexer from bash.flex, using idea flex skeleton and patched JFlex"
+			depends="clean">
+		<java jar="${jflex.jar}" output="${lexer.log}" fork="true">
+			<arg value="--charat"/>
+			<arg value="-skel"/>
+			<arg value="${lexer.skeleton}"/>
+			<arg value="${lexer.source}"/>
+		</java>
+	</target>
+</project>

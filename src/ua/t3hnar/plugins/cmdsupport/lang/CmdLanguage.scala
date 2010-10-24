@@ -8,7 +8,7 @@ import ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdSyntaxHighlighter
  * @author Yaroslav Klymko aka t3hnar
  */
 
-object CmdLanguage extends Language(Cmd.LANGUAGE_NAME, "application/x-batch", "application/x-bat", "text/x-script.bat") {
+object CmdLanguage extends Language(Cmd.languageName, "application/x-batch", "application/x-bat", "text/x-script.bat") {
 
   private class BashHighlighterFactory extends SingleLazyInstanceSyntaxHighlighterFactory {
     protected def createHighlighter: SyntaxHighlighter = {
