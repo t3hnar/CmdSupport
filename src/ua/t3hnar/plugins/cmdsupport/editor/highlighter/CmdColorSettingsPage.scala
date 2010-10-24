@@ -1,4 +1,4 @@
-package ua.t3hnar.plugins.cmdsupport.editor.highlighting
+package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
 import com.intellij.openapi.options.colors.ColorSettingsPage
 import ua.t3hnar.plugins.cmdsupport.lang.Cmd
@@ -10,12 +10,9 @@ import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
  * @author Yaroslav Klymko aka t3hnar
  */
 
-class CmdColorSettingsPage extends ColorSettingsPage {
-
+protected class CmdColorSettingsPage extends ColorSettingsPage {
 
 	def getAdditionalHighlightingTagToDescriptorMap = null
-
-	//TODO add some text
 
 	def getDemoText = "Demo text"
 

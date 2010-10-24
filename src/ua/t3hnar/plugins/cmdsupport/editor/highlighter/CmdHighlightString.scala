@@ -1,4 +1,4 @@
-package ua.t3hnar.plugins.cmdsupport.editor.highlighting
+package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
 import org.jetbrains.annotations.NonNls
 

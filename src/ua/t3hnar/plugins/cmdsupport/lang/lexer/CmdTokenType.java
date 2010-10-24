@@ -18,13 +18,13 @@ package ua.t3hnar.plugins.cmdsupport.lang.lexer;
 
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.TokenSet;
 import ua.t3hnar.plugins.cmdsupport.lang.parser.CmdElementType;
 
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
 public interface CmdTokenType {
+// ------------------------------ FIELDS ------------------------------
 
 	IElementType BAD_CHARACTER = TokenType.BAD_CHARACTER;
 	IElementType WHITE_SPACE = TokenType.WHITE_SPACE;
@@ -76,7 +76,7 @@ public interface CmdTokenType {
 	IElementType RIGHT_PARENTHESIS = new CmdElementType("RIGHT_PARENTHESIS");
 	IElementType LEFT_PARENTHESIS = new CmdElementType("LEFT_PARENTHESIS");
 
-	TokenSet KEYWORDS = TokenSet.create(
+	IElementType[] KEYWORDS = {
 			ECHO_KEYWORD,
 			GOTO_KEYWORD,
 			CALL_KEYWORD,
@@ -93,9 +93,9 @@ public interface CmdTokenType {
 			ELSE_KEYWORD,
 			SET_KEYWORD,
 			CMDEXTVERSION_KEYWORD
-	);
+	};
 
-	TokenSet OPERATORS = TokenSet.create(
+	IElementType[] OPERATORS = {
 			EQUAL_OPERATOR,
 			OR_OPERATOR,
 			AND_OPERATOR,
@@ -103,20 +103,20 @@ public interface CmdTokenType {
 			APPEND_OPERATOR,
 			PUT_OPERATOR,
 			GET_OPERATOR
-	);
+	};
 
-	TokenSet BRACES = TokenSet.create(
+	IElementType[] BRACES = {
 			LEFT_BRACE,
 			RIGHT_BRACE
-	);
+	};
 
-	TokenSet BRACKETS = TokenSet.create(
+	IElementType[] BRACKETS = {
 			LEFT_BRACKET,
 			RIGHT_BRACKET
-	);
+	};
 
-	TokenSet PARENTHESES = TokenSet.create(
+	IElementType[] PARENTHESES = {
 			LEFT_PARENTHESIS,
 			RIGHT_PARENTHESIS
-	);
+	};
 }

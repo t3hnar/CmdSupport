@@ -1,4 +1,4 @@
-package ua.t3hnar.plugins.cmdsupport.editor.highlighting
+package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory
 import com.intellij.openapi.vfs.VirtualFile

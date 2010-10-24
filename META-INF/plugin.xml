@@ -22,12 +22,12 @@
 	</actions>
 
 	<extensions defaultExtensionNs="com.intellij">
-		<colorSettingsPage implementation="ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdColorSettingsPage"/>
+		<colorSettingsPage implementation="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdColorSettingsPage"/>
 
 		<fileTypeFactory id="cmdFileTypeFactory" implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
 
 		<lang.syntaxHighlighterFactory
-				implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighting.CmdSyntaxHighlighterFactory"
+				implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdSyntaxHighlighterFactory"
 				key="CMD"/>
 
 		<!--<lang.parserDefinition implementationClass="ua.t3hnar.plugins.cmdsupport.lang.parser.CmdParserDefinition"/>-->
