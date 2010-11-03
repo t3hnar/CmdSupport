@@ -21,7 +21,7 @@ package object CmdTextAttributesKey {
 	val label = createAttributesKey("LABEL", createAttributes(new Color(0x80, 0x80, 0), null, null, null, Font.BOLD))
 	val labelReference = createAttributesKey("LABEL_REFERENCE", createAttributes(new Color(0x80, 0x80, 0), null, null, null, Font.BOLD | Font.ITALIC))
 	val expression = createAttributesKey("EXPRESSION", createAttributes(new Color(0, 0, 0x80), null, null, null, 0))
-	val number = createAttributesKey("NUMBER", createAttributes(new Color(0, 0, 0xff), null, null, null, 0))
+	val number = createAttributesKey("NUMBER", SyntaxHighlighterColors.NUMBER.getDefaultAttributes)
 	val operationSign = createAttributesKey("OPERATION_SIGN", SyntaxHighlighterColors.OPERATION_SIGN.getDefaultAttributes)
 	val braces = createAttributesKey("BRACES", SyntaxHighlighterColors.BRACES.getDefaultAttributes)
 	val brackets = createAttributesKey("BRACES", SyntaxHighlighterColors.BRACKETS.getDefaultAttributes)
