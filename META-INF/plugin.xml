@@ -5,7 +5,7 @@
 
 	<version>1.0.0</version>
 	<vendor>Yaroslav Klymko aka t3hnar</vendor>
-	<idea-version since-build="90000"/>
+	<idea-version since-build="90.000"/>
 
 	<depends>com.intellij.modules.lang</depends>
 
