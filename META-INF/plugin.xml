@@ -1,9 +1,13 @@
-<idea-plugin version="2">
+<idea-plugin version="2" url="https://github.com/t3hnar/CmdSupport">
 	<name>CMD Support</name>
-	<description>short description of the plugin</description>
-	<version>1.0</version>
-	<vendor>YourCompany</vendor>
-	<idea-version since-build="8000"/>
+	<description>Enables cmd highlighting</description>
+	<category>Custom Languages</category>
+
+	<version>1.0.0</version>
+	<vendor>Yaroslav Klymko aka t3hnar</vendor>
+	<idea-version since-build="90000"/>
+
+	<depends>com.intellij.modules.lang</depends>
 
 	<application-components>
 		<!-- Add your application components here -->
@@ -14,11 +18,6 @@
 	</project-components>
 
 	<actions>
-		<!-- Add your actions here -->
-		<action id="TestAction" class="ua.t3hnar.plugins.cmdsupport.TestAction" text="TestAction"
-				description="TestAction">
-			<add-to-group group-id="FileMenu" anchor="first"/>
-		</action>
 	</actions>
 
 	<extensions defaultExtensionNs="com.intellij">
