@@ -14,7 +14,13 @@ protected class CmdColorSettingsPage extends ColorSettingsPage {
 
 	def getAdditionalHighlightingTagToDescriptorMap = null
 
-	def getDemoText = "Demo text"
+	def getDemoText = "@echo on\n" +
+					"if not exist %JAVA_HOME% goto sethome\n" +
+					"\n" +
+					":sethome\n" +
+					"    rem setting java home\n" +
+					"    set JAVA_HOME=\"java home\"\n" +
+					"    echo JAVA_HOME = %JAVA_HOME%"
 
 	def getHighlighter = SyntaxHighlighter.PROVIDER.create(CmdFileType, null, null)
 

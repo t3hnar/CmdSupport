@@ -64,7 +64,7 @@ public interface CmdTokenType {
 	IElementType DO_KEYWORD = new CmdElementType("DO_KEYWORD");
 	IElementType ERRORLEVEL_KEYWORD = new CmdElementType("ERRORLEVEL_KEYWORD");
 	IElementType ON_KEYWORD = new CmdElementType("ON_KEYWORD");
-	IElementType OFF_KEYWORD = new CmdElementType("OFF_KEYWORD");
+	IElementType OFF_KEYWORD = new CmdElementType("F_KEYWORD");
 	IElementType ELSE_KEYWORD = new CmdElementType("ELSE_KEYWORD");
 	IElementType SET_KEYWORD = new CmdElementType("SET_KEYWORD");
 	IElementType CMDEXTVERSION_KEYWORD = new CmdElementType("CMDEXTVERSION_KEYWORD");
