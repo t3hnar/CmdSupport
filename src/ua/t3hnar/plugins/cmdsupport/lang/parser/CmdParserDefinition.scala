@@ -3,27 +3,37 @@ package ua.t3hnar.plugins.cmdsupport.lang.parser
 import com.intellij.psi.FileViewProvider
 import com.intellij.openapi.project.Project
 import com.intellij.lang.{ASTNode, ParserDefinition}
+import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdTokenType, CmdLexer}
+import com.intellij.psi.tree.IFileElementType
+import ua.t3hnar.plugins.cmdsupport.lang.CmdLanguage
+import com.intellij.psi.util.PsiUtilBase
+
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
 
 class CmdParserDefinition extends ParserDefinition {
 
-	def getStringLiteralElements = null
+	def getStringLiteralElements = CmdTokenType.STRING_LITERALS
 
-	def getFileNodeType = null
+	def getFileNodeType = CmdParserDefinition.FILE
 
-	def createElement(node: ASTNode) = null
+	def createElement(node: ASTNode) = PsiUtilBase.NULL_PSI_ELEMENT
 
-	def createParser(project: Project) = null
+	def createParser(project: Project) = new CmdParser
 
-	def getWhitespaceTokens = null
+	def getWhitespaceTokens = CmdTokenType.WHITE_SPACES
 
-	def createLexer(project: Project) = null
+	def createLexer(project: Project) = new CmdLexer
 
-	def getCommentTokens = null
+	def getCommentTokens = CmdTokenType.COMMENTS
 
 	def spaceExistanceTypeBetweenTokens(node1: ASTNode, node2: ASTNode) = null
 
 	def createFile(provider: FileViewProvider) = null
+}
+
+private object CmdParserDefinition {
+
+	val FILE = new IFileElementType(CmdLanguage)
 }

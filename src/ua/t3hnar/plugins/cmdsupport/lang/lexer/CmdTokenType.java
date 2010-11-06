@@ -18,6 +18,7 @@ package ua.t3hnar.plugins.cmdsupport.lang.lexer;
 
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.tree.TokenSet;
 import ua.t3hnar.plugins.cmdsupport.lang.parser.CmdElementType;
 
 /**
@@ -25,6 +26,7 @@ import ua.t3hnar.plugins.cmdsupport.lang.parser.CmdElementType;
  */
 public interface CmdTokenType {
 // ------------------------------ FIELDS ------------------------------
+
 
 	IElementType BAD_CHARACTER = TokenType.BAD_CHARACTER;
 	IElementType WHITE_SPACE = TokenType.WHITE_SPACE;
@@ -119,4 +121,8 @@ public interface CmdTokenType {
 			LEFT_PARENTHESIS,
 			RIGHT_PARENTHESIS
 	};
+
+	TokenSet COMMENTS = TokenSet.create(COMMENT);
+	TokenSet WHITE_SPACES = TokenSet.create(WHITE_SPACE);
+	TokenSet STRING_LITERALS=TokenSet.create(STRING_LITERAL);
 }

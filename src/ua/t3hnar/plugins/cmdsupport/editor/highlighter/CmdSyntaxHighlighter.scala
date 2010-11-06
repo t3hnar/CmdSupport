@@ -2,10 +2,12 @@ package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.openapi.editor.colors.TextAttributesKey
-import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdTokenType, CmdLexer}
 import com.intellij.psi.tree.IElementType
 import scala.collection.mutable.Map
+import ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdTextAttributesKey._
+import com.intellij.openapi.editor.colors.TextAttributesKey
+import ua.t3hnar.plugins.cmdsupport.lang.lexer.CmdLexer
+import ua.t3hnar.plugins.cmdsupport.lang.lexer.CmdTokenType._
 
 /**
  * @author Yaroslav Klymko aka t3hnar
@@ -17,24 +19,24 @@ class CmdSyntaxHighlighter extends SyntaxHighlighterBase {
 	private val lexer = new CmdLexer
 	private val map: Map[IElementType, TextAttributesKey] = {
 		val map = Map[IElementType, TextAttributesKey]()
-		append(map, CmdTokenType.COMMENT, CmdTextAttributesKey.comment)
-		append(map, CmdTokenType.BRACES, CmdTextAttributesKey.braces)
-		append(map, CmdTokenType.BRACKETS, CmdTextAttributesKey.brackets)
-		append(map, CmdTokenType.PARENTHESES, CmdTextAttributesKey.parenths)
-		append(map, CmdTokenType.OPERATORS, CmdTextAttributesKey.operationSign)
-		append(map, CmdTokenType.DIGIT, CmdTextAttributesKey.number)
-		append(map, CmdTokenType.VARIABLE, CmdTextAttributesKey.variable)
-		append(map, CmdTokenType.ENVIRONMENT_VARIABLE, CmdTextAttributesKey.environmentVariable)
-		append(map, CmdTokenType.ENVIRONMENT_VARIABLE_DEFINITION, CmdTextAttributesKey.environmentVariableDefinition)
-		append(map, CmdTokenType.LABEL, CmdTextAttributesKey.label)
-		append(map, CmdTokenType.LABEL_REFERENCE, CmdTextAttributesKey.labelReference)
-		append(map, CmdTokenType.LABEL_MARKER, CmdTextAttributesKey.expression)
-		append(map, CmdTokenType.ECHO_OFF_MARKER, CmdTextAttributesKey.expression)
-		append(map, CmdTokenType.EXPRESSION, CmdTextAttributesKey.expression)
-		append(map, CmdTokenType.BAD_CHARACTER, CmdTextAttributesKey.badCharacter)
-		append(map, CmdTokenType.COMMENT, CmdTextAttributesKey.comment)
-		append(map, CmdTokenType.STRING_LITERAL, CmdTextAttributesKey.string)
-		append(map, CmdTokenType.KEYWORDS, CmdTextAttributesKey.keyword)
+		append(map, COMMENT, comment)
+		append(map, BRACES, braces)
+		append(map, BRACKETS, brackets)
+		append(map, PARENTHESES, parenths)
+		append(map, OPERATORS, operationSign)
+		append(map, DIGIT, number)
+		append(map, VARIABLE, variable)
+		append(map, ENVIRONMENT_VARIABLE, environmentVariable)
+		append(map, ENVIRONMENT_VARIABLE_DEFINITION, environmentVariableDefinition)
+		append(map, LABEL, label)
+		append(map, LABEL_REFERENCE, labelReference)
+		append(map, LABEL_MARKER, expression)
+		append(map, ECHO_OFF_MARKER, expression)
+		append(map, EXPRESSION, expression)
+		append(map, BAD_CHARACTER, badCharacter)
+		append(map, COMMENT, comment)
+		append(map, STRING_LITERAL, string)
+		append(map, KEYWORDS, keyword)
 		map
 	}
 

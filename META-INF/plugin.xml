@@ -28,7 +28,6 @@
 		<lang.syntaxHighlighterFactory
 				implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdSyntaxHighlighterFactory"
 				key="CMD"/>
-
-		<!--<lang.parserDefinition implementationClass="ua.t3hnar.plugins.cmdsupport.lang.parser.CmdParserDefinition"/>-->
+		<lang.parserDefinition implementationClass="ua.t3hnar.plugins.cmdsupport.lang.parser.CmdParserDefinition"/>
 	</extensions>
 </idea-plugin>
