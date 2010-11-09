@@ -7,6 +7,7 @@ import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdTokenType, CmdLexer}
 import com.intellij.psi.tree.IFileElementType
 import ua.t3hnar.plugins.cmdsupport.lang.CmdLanguage
 import com.intellij.psi.util.PsiUtilBase
+import ua.t3hnar.plugins.cmdsupport.lang.psi.CmdFile
 
 /**
  * @author Yaroslav Klymko aka t3hnar
@@ -30,7 +31,7 @@ class CmdParserDefinition extends ParserDefinition {
 
 	def spaceExistanceTypeBetweenTokens(node1: ASTNode, node2: ASTNode) = null
 
-	def createFile(provider: FileViewProvider) = null
+	def createFile(provider: FileViewProvider) = new CmdFile(provider)
 }
 
 private object CmdParserDefinition {
