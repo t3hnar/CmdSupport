@@ -18,6 +18,10 @@
 	</project-components>
 
 	<actions>
+		<action id="CMD.NewCmdScript" class="ua.t3hnar.plugins.cmdsupport.actions.NewCmdFileAction"
+				text="CMD Script" description="Create new CMD script file">
+			<add-to-group group-id="NewGroup" relative-to-action="NewFile" anchor="after"/>
+		</action>
 	</actions>
 
 	<extensions defaultExtensionNs="com.intellij">

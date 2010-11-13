@@ -7,13 +7,16 @@ import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
+
 object CmdFileType extends LanguageFileType(CmdLanguage) {
-	val CMD_EXTENSION = "cmd"
-	val BAT_EXTENSION = "bat"
 
-	def getIcon = CmdIcon.FILE
+	val cmdExtension = "cmd"
+	val batExtension = "bat"
+	val extensions = Array(cmdExtension, batExtension)
 
-	def getDefaultExtension = CMD_EXTENSION
+	def getIcon = CmdIcon.file
+
+	def getDefaultExtension = cmdExtension
 
 	def getDescription = Cmd.languageDescription
 

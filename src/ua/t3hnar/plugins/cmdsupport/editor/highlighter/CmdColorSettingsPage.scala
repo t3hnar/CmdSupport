@@ -28,7 +28,7 @@ protected class CmdColorSettingsPage extends ColorSettingsPage {
 
 	def getAttributeDescriptors = CmdColorSettingsPage.attributeDescriptors;
 
-	def getIcon = CmdIcon.FILE;
+	def getIcon = CmdIcon.file;
 
 	def getDisplayName = Cmd.languageName
 }

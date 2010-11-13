@@ -8,7 +8,7 @@ import com.intellij.openapi.fileTypes.{FileTypeConsumer, FileTypeFactory}
  */
 class CmdFileTypeFactory extends FileTypeFactory {
 	def createFileTypes(consumer: FileTypeConsumer) = {
-		consumer.consume(CmdFileType, CmdFileType.CMD_EXTENSION)
-		consumer.consume(CmdFileType, CmdFileType.BAT_EXTENSION)
+		consumer.consume(CmdFileType, CmdFileType.cmdExtension)
+		consumer.consume(CmdFileType, CmdFileType.batExtension)
 	}
 }

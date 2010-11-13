@@ -8,7 +8,7 @@ import com.intellij.openapi.util.IconLoader
 
 object CmdIcon {
 
-	private val PATH = "/icons/"
-	val FILE = IconLoader.findIcon(PATH + "cmd-16.png")
+	private val path = "/icons/"
+	val file = IconLoader.findIcon(path + "cmd-16.png")
 }
 
