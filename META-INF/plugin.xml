@@ -1,6 +1,6 @@
 <idea-plugin version="2" url="https://github.com/t3hnar/CmdSupport">
-	<name>Cmd Support</name>
-	<version>1.0.0</version>
+	<name>CMD Support</name>
+	<version>1.0.1</version>
 	<vendor>Yaroslav Klymko aka t3hnar</vendor>
 	<category>Custom Languages</category>
 	<idea-version since-build="90.000"/>
