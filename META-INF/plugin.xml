@@ -18,10 +18,10 @@
 	</project-components>
 
 	<actions>
-		<action id="CMD.NewCmdScript" class="ua.t3hnar.plugins.cmdsupport.actions.NewCmdFileAction"
-				text="CMD Script" description="Create new CMD script file">
-			<add-to-group group-id="NewGroup" relative-to-action="NewFile" anchor="after"/>
-		</action>
+		<!--<action id="CMD.NewCmdScript" class="ua.t3hnar.plugins.cmdsupport.actions.NewCmdFileAction"-->
+		<!--text="CMD Script" description="Create new CMD script file">-->
+		<!--<add-to-group group-id="NewGroup" relative-to-action="NewFile" anchor="after"/>-->
+		<!--</action>-->
 	</actions>
 
 	<extensions defaultExtensionNs="com.intellij">
@@ -29,9 +29,10 @@
 
 		<fileTypeFactory id="cmdFileTypeFactory" implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
 
-		<lang.syntaxHighlighterFactory
-				implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdSyntaxHighlighterFactory"
-				key="CMD"/>
-		<lang.parserDefinition implementationClass="ua.t3hnar.plugins.cmdsupport.lang.parser.CmdParserDefinition"/>
+		<lang.syntaxHighlighterFactory key="CMD"
+									   implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdSyntaxHighlighterFactory"/>
+
+		<!--<lang.parserDefinition language="CMD"-->
+		<!--implementationClass="ua.t3hnar.plugins.cmdsupport.lang.parser.CmdParserDefinition"/>-->
 	</extensions>
 </idea-plugin>
