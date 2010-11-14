@@ -1,6 +1,6 @@
 <idea-plugin version="2" url="https://github.com/t3hnar/CmdSupport">
-	<name>CMD Support</name>
-	<description>Enables cmd highlighting</description>
+	<name>Cmd Support</name>
+	<description>Enables Cmd highlighting</description>
 	<category>Custom Languages</category>
 
 	<version>1.0.0</version>
@@ -18,21 +18,29 @@
 	</project-components>
 
 	<actions>
-		<!--<action id="CMD.NewCmdScript" class="ua.t3hnar.plugins.cmdsupport.actions.NewCmdFileAction"-->
-		<!--text="CMD Script" description="Create new CMD script file">-->
+		<!--TODO Implement ParserDef before enabling this action-->
+		<!--<action id="Cmd.NewCmdScript" class="ua.t3hnar.plugins.Cmdsupport.actions.NewCmdFileAction"-->
+		<!--text="Cmd Script" description="Create new Cmd script file">-->
 		<!--<add-to-group group-id="NewGroup" relative-to-action="NewFile" anchor="after"/>-->
 		<!--</action>-->
+
+		<group id="Cmd.Group" text="Cmd"
+			   class="com.intellij.openapi.actionSystem.DefaultActionGroup">
+			<action id="Cmd.RunCmdScript" class="ua.t3hnar.plugins.cmdsupport.actions.RunCmdScriptAction"/>
+			<action id="Cmd.RunCmdShell" class="ua.t3hnar.plugins.cmdsupport.actions.RunCmdShellAction"/>
+			<add-to-group group-id="ProjectViewPopupMenuRunGroup" anchor="first"/>
+		</group>
 	</actions>
 
 	<extensions defaultExtensionNs="com.intellij">
 		<colorSettingsPage implementation="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdColorSettingsPage"/>
 
-		<fileTypeFactory id="cmdFileTypeFactory" implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
+		<fileTypeFactory id="CmdFileTypeFactory" implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
 
-		<lang.syntaxHighlighterFactory key="CMD"
+		<lang.syntaxHighlighterFactory key="Cmd"
 									   implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdSyntaxHighlighterFactory"/>
 
-		<!--<lang.parserDefinition language="CMD"-->
-		<!--implementationClass="ua.t3hnar.plugins.cmdsupport.lang.parser.CmdParserDefinition"/>-->
+		<!--<lang.parserDefinition language="Cmd"-->
+		<!--implementationClass="ua.t3hnar.plugins.Cmdsupport.lang.parser.CmdParserDefinition"/>-->
 	</extensions>
 </idea-plugin>

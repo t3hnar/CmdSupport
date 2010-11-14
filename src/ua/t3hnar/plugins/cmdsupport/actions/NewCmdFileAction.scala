@@ -10,17 +10,18 @@ import ua.t3hnar.plugins.cmdsupport.file.CmdFileType
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.ui.Messages
 import com.intellij.psi.{PsiFile, PsiFileFactory, PsiDirectory}
+
 /**
  * @author Yaroslav Klymko aka t3hnar
  */
 
-class NewCmdFileAction extends CreateElementActionBase("Create CMD file", "Creates a new CMD file", CmdIcon.file) {
+class NewCmdFileAction extends CreateElementActionBase("Create Cmd file", "Creates a new Cmd file", CmdIcon.file) {
 
 	private val log = Logger.getInstance(classOf[NewCmdFileAction].getName)
 
-	def getActionName(directory: PsiDirectory, newName: String) = "Create CMD file"
+	def getActionName(directory: PsiDirectory, newName: String) = "Create Cmd file"
 
-	def getCommandName = "CMD file"
+	def getCommandName = "Cmd file"
 
 	def getErrorTitle = CommonBundle.getErrorTitle();
 
@@ -28,7 +29,7 @@ class NewCmdFileAction extends CreateElementActionBase("Create CMD file", "Creat
 		val extension: String = FileUtil.getExtension(newName)
 		log.debug("extension: " + extension)
 
-		val contains = CmdFileType.extensions.contains(extension)
+		val contains = CmdFileType.extensions.contains(extension.toLowerCase)
 		log.debug("contains: " + contains)
 
 		if (contains)
@@ -47,6 +48,7 @@ class NewCmdFileAction extends CreateElementActionBase("Create CMD file", "Creat
 		log.debug("project: " + project)
 
 		val factory = PsiFileFactory.getInstance(project)
+
 		val file = factory.createFileFromText(finalName, CmdFileType, "")
 		Array(directory.add(file).asInstanceOf[PsiFile])
 	}
@@ -59,7 +61,7 @@ class NewCmdFileAction extends CreateElementActionBase("Create CMD file", "Creat
 
 	def invokeDialog(project: Project, directory: PsiDirectory) = {
 		val validator = new MyInputValidator(project, directory)
-		Messages.showInputDialog(project, "Enter a new CMD file name", "New CMD File", Messages.getQuestionIcon, "", validator)
+		Messages.showInputDialog(project, "Enter a new Cmd file name", "New Cmd File", Messages.getQuestionIcon, "", validator)
 		val elements = validator.getCreatedElements
 		log.debug("elements: " + elements)
 		elements
