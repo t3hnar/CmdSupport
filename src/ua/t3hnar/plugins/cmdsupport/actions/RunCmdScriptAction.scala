@@ -9,6 +9,7 @@ import com.intellij.openapi.fileEditor.FileDocumentManager
 import ua.t3hnar.plugins.cmdsupport.lang.Cmd
 import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
 import java.lang.String
+import java.io.File
 
 /**
  * @author Yaroslav Klymko aka t3hnar
@@ -25,7 +26,9 @@ class RunCmdScriptAction extends AnAction("Run Cmd Script", "Run Cmd Script", Cm
 		def saveAndRun(file: VirtualFile): Unit = {
 			val documentManager = FileDocumentManager.getInstance()
 			documentManager.saveDocument(documentManager.getDocument(file))
-			Runtime.getRuntime.exec("cmd /c start " + file.getPath)
+			val path = file.getPath
+			log.info("path: " + path)
+			Runtime.getRuntime.exec(Array("cmd", "/c", "start", path), null, new File(file.getParent.getPath))
 		}
 
 		files.foreach(file => saveAndRun(file))

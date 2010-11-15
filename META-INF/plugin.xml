@@ -1,6 +1,6 @@
 <idea-plugin version="2" url="https://github.com/t3hnar/CmdSupport">
 	<name>CMD Support</name>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<vendor>Yaroslav Klymko aka t3hnar</vendor>
 	<category>Custom Languages</category>
 	<idea-version since-build="90.000"/>
@@ -10,7 +10,7 @@
 		<![CDATA[
 				<html>
 					<body>
-						<h4>CMD Support plugin for Intellij Idea</h4>
+						<h4><strong>CMD Support plugin for Intellij Idea</strong></h4>
 						<ul>
 							<li>Enables highlighting</li>
 							<li>Adds new actions</li>
