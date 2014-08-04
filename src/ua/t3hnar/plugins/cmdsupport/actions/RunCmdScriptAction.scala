@@ -4,7 +4,7 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.vfs.VirtualFile
 import collection.mutable.ListBuffer
 import ua.t3hnar.plugins.cmdsupport.file.CmdFileType
-import com.intellij.openapi.actionSystem.{PlatformDataKeys, AnActionEvent, AnAction}
+import com.intellij.openapi.actionSystem.{CommonDataKeys, AnActionEvent, AnAction}
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import ua.t3hnar.plugins.cmdsupport.lang.Cmd
 import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
@@ -51,8 +51,8 @@ class RunCmdScriptAction extends AnAction("Run Cmd Script", "Run Cmd Script", Cm
 	}
 
 	private def getCompatibleFiles(e: AnActionEvent): List[VirtualFile] = {
-		val files: Array[VirtualFile] = PlatformDataKeys.VIRTUAL_FILE_ARRAY.getData(e.getDataContext)
-		if (files.isEmpty) {
+		val files: Array[VirtualFile] = CommonDataKeys.VIRTUAL_FILE_ARRAY.getData(e.getDataContext)
+		if (files == null || files.isEmpty) {
 			List.empty[VirtualFile]
 		}
 		else {

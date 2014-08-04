@@ -6,7 +6,7 @@ import com.intellij.lang.{ASTNode, ParserDefinition}
 import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdTokenType, CmdLexer}
 import com.intellij.psi.tree.IFileElementType
 import ua.t3hnar.plugins.cmdsupport.lang.CmdLanguage
-import com.intellij.psi.util.PsiUtilBase
+import com.intellij.psi.util.PsiUtilCore
 import ua.t3hnar.plugins.cmdsupport.lang.psi.CmdFile
 
 /**
@@ -19,7 +19,7 @@ class CmdParserDefinition extends ParserDefinition {
 
 	def getFileNodeType = CmdParserDefinition.FILE
 
-	def createElement(node: ASTNode) = PsiUtilBase.NULL_PSI_ELEMENT
+	def createElement(node: ASTNode) = PsiUtilCore.NULL_PSI_ELEMENT
 
 	def createParser(project: Project) = new CmdParser
 
