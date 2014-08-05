@@ -2,7 +2,7 @@ package ua.t3hnar.plugins.cmdsupport.actions
 
 import ua.t3hnar.plugins.cmdsupport.lang.Cmd
 import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
-import com.intellij.openapi.actionSystem.{PlatformDataKeys, AnActionEvent, AnAction}
+import com.intellij.openapi.actionSystem.{CommonDataKeys, PlatformDataKeys, AnActionEvent, AnAction}
 import com.intellij.openapi.vfs.VirtualFile
 import java.io.File
 
@@ -17,7 +17,7 @@ class RunCmdShellAction extends AnAction("Run Cmd Shell", "Run Cmd Shell", CmdIc
 	}
 
 	def actionPerformed(e: AnActionEvent) = {
-		val file: VirtualFile = PlatformDataKeys.VIRTUAL_FILE.getData(e.getDataContext)
+		val file: VirtualFile = CommonDataKeys.VIRTUAL_FILE.getData(e.getDataContext)
 
 		val path = {
 			if (file != null) {
