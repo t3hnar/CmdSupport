@@ -1,9 +1,9 @@
 <idea-plugin version="2" url="https://github.com/t3hnar/CmdSupport">
 	<name>CMD Support</name>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<vendor>Yaroslav Klymko aka t3hnar</vendor>
 	<category>Custom Languages</category>
-	<idea-version since-build="90.000"/>
+	<idea-version since-build="135.1230"/>
 	<depends>com.intellij.modules.lang</depends>
 
 	<description>
@@ -23,6 +23,10 @@
 	<change-notes>
 		<![CDATA[
 				<html>
+				    <strong>Changes in version 1.0.3:</strong>
+					<ul>
+						<li>Make compatible with new Intellij Idea</li>
+					</ul>
 					<strong>Changes in version 1.0.1:</strong>
 					<ul>
 						<li>Added 'Run Cmd Shell action'</li>

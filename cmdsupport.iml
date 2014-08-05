@@ -5,7 +5,7 @@
     <facet type="scala" name="Scala">
       <configuration>
         <option name="compilerLibraryLevel" value="Global" />
-        <option name="compilerLibraryName" value="Scala" />
+        <option name="compilerLibraryName" value="Maven: org.scala-lang:scala-compiler-bundle:2.10" />
         <option name="optimiseBytecode" value="true" />
       </configuration>
     </facet>
@@ -17,13 +17,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/jflex" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="IDEA IC-98.187" jdkType="IDEA JDK" />
+    <orderEntry type="jdk" jdkName="IDEA IU-135.1230" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Scala" level="application" />
-    <orderEntry type="module-library" scope="RUNTIME">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/Program Files/Scala/lib/scala-library.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.10.3/scala-library-2.10.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
