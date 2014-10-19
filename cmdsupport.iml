@@ -5,7 +5,7 @@
     <facet type="scala" name="Scala">
       <configuration>
         <option name="compilerLibraryLevel" value="Global" />
-        <option name="compilerLibraryName" value="Maven: org.scala-lang:scala-compiler-bundle:2.10" />
+        <option name="compilerLibraryName" value="Scala 2.11.2" />
         <option name="optimiseBytecode" value="true" />
       </configuration>
     </facet>
@@ -22,7 +22,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.10.3/scala-library-2.10.3.jar!/" />
+          <root url="jar:///usr/local/Cellar/scala/2.11.2/libexec/lib/scala-library.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
