@@ -21,9 +21,7 @@ import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.TokenSet;
 import ua.t3hnar.plugins.cmdsupport.lang.parser.CmdElementType;
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
+
 public interface CmdTokenType {
 // ------------------------------ FIELDS ------------------------------
 

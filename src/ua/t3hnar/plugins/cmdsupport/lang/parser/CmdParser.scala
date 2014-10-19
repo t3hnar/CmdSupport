@@ -4,9 +4,6 @@ import com.intellij.psi.tree.IElementType
 import com.intellij.lang.{PsiBuilder, PsiParser}
 import com.intellij.openapi.diagnostic.Logger
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
 
 class CmdParser extends PsiParser {
 

@@ -4,9 +4,7 @@ import com.intellij.openapi.fileTypes.LanguageFileType
 import ua.t3hnar.plugins.cmdsupport.lang.{Cmd, CmdLanguage}
 import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
+
 
 object CmdFileType extends LanguageFileType(CmdLanguage) {
 

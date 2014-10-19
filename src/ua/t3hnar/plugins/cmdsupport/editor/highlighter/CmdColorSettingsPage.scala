@@ -1,14 +1,11 @@
 package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
-import ua.t3hnar.plugins.cmdsupport.lang.Cmd
 import com.intellij.openapi.fileTypes.SyntaxHighlighter
+import com.intellij.openapi.options.colors.{ColorSettingsPage, AttributesDescriptor}
+import ua.t3hnar.plugins.cmdsupport.lang.Cmd
 import ua.t3hnar.plugins.cmdsupport.file.CmdFileType
 import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
-import com.intellij.openapi.options.colors.{ColorSettingsPage, AttributesDescriptor}
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
 
 protected class CmdColorSettingsPage extends ColorSettingsPage {
 
@@ -26,11 +23,11 @@ protected class CmdColorSettingsPage extends ColorSettingsPage {
 
 	def getColorDescriptors = Array.empty
 
-	def getAttributeDescriptors = CmdColorSettingsPage.attributeDescriptors;
+	def getAttributeDescriptors = CmdColorSettingsPage.attributeDescriptors
 
-	def getIcon = CmdIcon.file;
+  def getIcon = CmdIcon.file
 
-	def getDisplayName = Cmd.languageName
+  def getDisplayName = Cmd.languageName
 }
 
 

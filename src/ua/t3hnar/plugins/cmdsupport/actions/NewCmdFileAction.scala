@@ -1,19 +1,15 @@
 package ua.t3hnar.plugins.cmdsupport.actions
 
 import com.intellij.ide.actions.CreateElementActionBase
-import java.lang.String
 import com.intellij.openapi.project.Project
-import com.intellij.CommonBundle
-import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
 import com.intellij.openapi.util.io.FileUtil
-import ua.t3hnar.plugins.cmdsupport.file.CmdFileType
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.ui.Messages
+import com.intellij.CommonBundle
 import com.intellij.psi.{PsiFile, PsiFileFactory, PsiDirectory}
+import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
+import ua.t3hnar.plugins.cmdsupport.file.CmdFileType
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
 
 class NewCmdFileAction extends CreateElementActionBase("Create Cmd file", "Creates a new Cmd file", CmdIcon.file) {
 
@@ -23,9 +19,9 @@ class NewCmdFileAction extends CreateElementActionBase("Create Cmd file", "Creat
 
 	def getCommandName = "Cmd file"
 
-	def getErrorTitle = CommonBundle.getErrorTitle();
+	def getErrorTitle = CommonBundle.getErrorTitle()
 
-	def getFinalName(newName: String) = {
+  def getFinalName(newName: String) = {
 		val extension: String = FileUtil.getExtension(newName)
 		log.debug("extension: " + extension)
 

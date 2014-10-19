@@ -6,9 +6,6 @@ import com.intellij.openapi.actionSystem.{CommonDataKeys, PlatformDataKeys, AnAc
 import com.intellij.openapi.vfs.VirtualFile
 import java.io.File
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
 
 class RunCmdShellAction extends AnAction("Run Cmd Shell", "Run Cmd Shell", CmdIcon.file) {
 
@@ -32,6 +29,6 @@ class RunCmdShellAction extends AnAction("Run Cmd Shell", "Run Cmd Shell", CmdIc
 			}
 		}
 
-		Runtime.getRuntime.exec(Array("cmd", "/c", "start"), null, new File(path));
-	}
+		Runtime.getRuntime.exec(Array("cmd", "/c", "start"), null, new File(path))
+  }
 }

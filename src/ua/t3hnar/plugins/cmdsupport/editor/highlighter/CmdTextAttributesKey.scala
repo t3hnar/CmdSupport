@@ -2,16 +2,12 @@ package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.editor.{HighlighterColors, SyntaxHighlighterColors}
-import ua.t3hnar.plugins.cmdsupport.lang.Cmd
-import java.awt.{Font, Color}
-import java.lang.String
 import com.intellij.openapi.editor.markup.{EffectType, TextAttributes}
+import java.awt.{Font, Color}
+import ua.t3hnar.plugins.cmdsupport.lang.Cmd
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
 
-package object CmdTextAttributesKey {
+object CmdTextAttributesKey {
 
 	val comment = createAttributesKey("COMMENT", SyntaxHighlighterColors.JAVA_BLOCK_COMMENT.getDefaultAttributes)
 	val string = createAttributesKey("STRING", SyntaxHighlighterColors.STRING.getDefaultAttributes)

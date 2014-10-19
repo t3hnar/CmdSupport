@@ -2,23 +2,22 @@ package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase
 import com.intellij.openapi.diagnostic.Logger
-import com.intellij.psi.tree.IElementType
-import scala.collection.mutable.Map
-import ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdTextAttributesKey._
 import com.intellij.openapi.editor.colors.TextAttributesKey
+import com.intellij.psi.tree.IElementType
+import scala.collection.mutable
+import scala.collection.mutable.Map
 import ua.t3hnar.plugins.cmdsupport.lang.lexer.CmdLexer
 import ua.t3hnar.plugins.cmdsupport.lang.lexer.CmdTokenType._
+import CmdTextAttributesKey._
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
+
 
 class CmdSyntaxHighlighter extends SyntaxHighlighterBase {
 
 	private val log = Logger.getInstance(classOf[CmdSyntaxHighlighter].getName)
 	private val lexer = new CmdLexer
-	private val map: Map[IElementType, TextAttributesKey] = {
-		val map = Map[IElementType, TextAttributesKey]()
+	private val map: mutable.Map[IElementType, TextAttributesKey] = {
+		val map = mutable.Map[IElementType, TextAttributesKey]()
 		append(map, COMMENT, comment)
 		append(map, BRACES, braces)
 		append(map, BRACKETS, brackets)
@@ -49,14 +48,14 @@ class CmdSyntaxHighlighter extends SyntaxHighlighterBase {
 			Array.empty[TextAttributesKey]
 	}
 
-	def getHighlightingLexer = lexer;
+	def getHighlightingLexer = lexer
 
 
-	private def append(map: Map[IElementType, TextAttributesKey], elementTypes: Array[IElementType], value: TextAttributesKey) {
+  private def append(map: mutable.Map[IElementType, TextAttributesKey], elementTypes: Array[IElementType], value: TextAttributesKey) {
 		elementTypes.foreach(elementType => map += (elementType -> value))
 	}
 
-	private def append(map: Map[IElementType, TextAttributesKey], elementType: IElementType, value: TextAttributesKey) {
+	private def append(map: mutable.Map[IElementType, TextAttributesKey], elementType: IElementType, value: TextAttributesKey) {
 		map += (elementType -> value)
 	}
 }

@@ -1,17 +1,14 @@
 package ua.t3hnar.plugins.cmdsupport.lang.parser
 
-import com.intellij.psi.FileViewProvider
 import com.intellij.openapi.project.Project
 import com.intellij.lang.{ASTNode, ParserDefinition}
-import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdTokenType, CmdLexer}
 import com.intellij.psi.tree.IFileElementType
-import ua.t3hnar.plugins.cmdsupport.lang.CmdLanguage
 import com.intellij.psi.util.PsiUtilCore
+import com.intellij.psi.FileViewProvider
+import ua.t3hnar.plugins.cmdsupport.lang.lexer.{CmdTokenType, CmdLexer}
+import ua.t3hnar.plugins.cmdsupport.lang.CmdLanguage
 import ua.t3hnar.plugins.cmdsupport.lang.psi.CmdFile
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
 
 class CmdParserDefinition extends ParserDefinition {
 

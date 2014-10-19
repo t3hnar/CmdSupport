@@ -2,18 +2,15 @@ package ua.t3hnar.plugins.cmdsupport.actions
 
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.vfs.VirtualFile
-import collection.mutable.ListBuffer
-import ua.t3hnar.plugins.cmdsupport.file.CmdFileType
 import com.intellij.openapi.actionSystem.{CommonDataKeys, AnActionEvent, AnAction}
 import com.intellij.openapi.fileEditor.FileDocumentManager
+import collection.mutable.ListBuffer
 import ua.t3hnar.plugins.cmdsupport.lang.Cmd
 import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
-import java.lang.String
+import ua.t3hnar.plugins.cmdsupport.file.CmdFileType
 import java.io.File
 
-/**
- * @author Yaroslav Klymko aka t3hnar
- */
+
 
 class RunCmdScriptAction extends AnAction("Run Cmd Script", "Run Cmd Script", CmdIcon.file) {
 
@@ -35,13 +32,13 @@ class RunCmdScriptAction extends AnAction("Run Cmd Script", "Run Cmd Script", Cm
 	}
 
 	override def update(e: AnActionEvent) = {
-		val enabled = Cmd.canRun && !getCompatibleFiles(e).isEmpty
+		val enabled = Cmd.canRun && getCompatibleFiles(e).nonEmpty
 		e.getPresentation.setEnabled(enabled)
 	}
 
 	private def getCompatibleFiles(files: Array[VirtualFile]): List[VirtualFile] = {
-		val compatibleFiles = new ListBuffer[VirtualFile];
-		for (file <- files) {
+		val compatibleFiles = new ListBuffer[VirtualFile]
+    for (file <- files) {
 			val extension: String = file.getExtension
 			if (extension != null && CmdFileType.extensions.contains(extension.toLowerCase)) {
 				compatibleFiles += file
