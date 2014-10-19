@@ -23,6 +23,10 @@
 	<change-notes>
 		<![CDATA[
 				<html>
+				    <strong>Changes in version 1.0.4:</strong>
+					<ul>
+						<li>Add new icon</li>
+					</ul>
 				    <strong>Changes in version 1.0.3:</strong>
 					<ul>
 						<li>Make compatible with new Intellij Idea</li>
