@@ -27,7 +27,7 @@ import com.intellij.psi.tree.IElementType;
  * on 24.10.10 14:11 from the specification file
  * <tt>src/ua/t3hnar/plugins/cmdsupport/lang/lexer/Cmd.flex</tt>
  */
-final class _CmdLexer implements FlexLexer {
+final class JCmdLexer implements FlexLexer {
   /** initial size of the lookahead buffer */
   private static final int ZZ_BUFFERSIZE = 16384;
 
@@ -418,7 +418,7 @@ final class _CmdLexer implements FlexLexer {
   private boolean zzEOFDone;
 
 
-  _CmdLexer(java.io.Reader in) {
+  JCmdLexer(java.io.Reader in) {
     this.zzReader = in;
   }
 
@@ -428,7 +428,7 @@ final class _CmdLexer implements FlexLexer {
    *
    * @param   in  the java.io.Inputstream to read input from.
    */
-  _CmdLexer(java.io.InputStream in) {
+  JCmdLexer(java.io.InputStream in) {
     this(new java.io.InputStreamReader(in));
   }
 

@@ -1,61 +1,46 @@
 package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
-import com.intellij.openapi.fileTypes.SyntaxHighlighterBase
-import com.intellij.openapi.diagnostic.Logger
+import com.intellij.openapi.fileTypes.{SyntaxHighlighterFactory, SyntaxHighlighterBase}
 import com.intellij.openapi.editor.colors.TextAttributesKey
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.tree.IElementType
-import scala.collection.mutable
-import scala.collection.mutable.Map
 import ua.t3hnar.plugins.cmdsupport.lang.lexer.CmdLexer
 import ua.t3hnar.plugins.cmdsupport.lang.lexer.CmdTokenType._
-import CmdTextAttributesKey._
-
+import CmdTextAttributes._
 
 
 class CmdSyntaxHighlighter extends SyntaxHighlighterBase {
 
-	private val log = Logger.getInstance(classOf[CmdSyntaxHighlighter].getName)
-	private val lexer = new CmdLexer
-	private val map: mutable.Map[IElementType, TextAttributesKey] = {
-		val map = mutable.Map[IElementType, TextAttributesKey]()
-		append(map, COMMENT, comment)
-		append(map, BRACES, braces)
-		append(map, BRACKETS, brackets)
-		append(map, PARENTHESES, parenths)
-		append(map, OPERATORS, operationSign)
-		append(map, DIGIT, number)
-		append(map, VARIABLE, variable)
-		append(map, ENVIRONMENT_VARIABLE, environmentVariable)
-		append(map, ENVIRONMENT_VARIABLE_DEFINITION, environmentVariableDefinition)
-		append(map, LABEL, label)
-		append(map, LABEL_REFERENCE, labelReference)
-		append(map, LABEL_MARKER, expression)
-		append(map, ECHO_OFF_MARKER, expression)
-		append(map, EXPRESSION, expression)
-		append(map, BAD_CHARACTER, badCharacter)
-		append(map, COMMENT, comment)
-		append(map, STRING_LITERAL, string)
-		append(map, KEYWORDS, keyword)
-		map
-	}
+  import CmdSyntaxHighlighter._
 
-	def getTokenHighlights(elementType: IElementType) = {
-		log.info("elementType: " + elementType)
+  def getTokenHighlights(elementType: IElementType) = Map.get(elementType).toArray
 
-		if (map.contains(elementType))
-			Array(map(elementType))
-		else
-			Array.empty[TextAttributesKey]
-	}
+  def getHighlightingLexer = new CmdLexer
+}
 
-	def getHighlightingLexer = lexer
+object CmdSyntaxHighlighter {
+  lazy val Map: Map[IElementType, TextAttributesKey] = {
+    List[(TextAttributesKey, Array[IElementType])](
+      Comment -> Array(COMMENT),
+      Braces -> BRACES,
+      Brackets -> BRACKETS,
+      Parenths -> PARENTHESES,
+      OperationSign -> OPERATORS,
+      Number -> Array(DIGIT),
+      Variable -> Array(VARIABLE),
+      EnvVariable -> Array(ENVIRONMENT_VARIABLE),
+      EnvVariableDefinition -> Array(ENVIRONMENT_VARIABLE_DEFINITION),
+      Label -> Array(LABEL),
+      LabelReference -> Array(LABEL_REFERENCE),
+      Expression -> Array(EXPRESSION, ECHO_OFF_MARKER, LABEL_MARKER),
+      BadCharacter -> Array(BAD_CHARACTER),
+      Comment -> Array(COMMENT),
+      String -> Array(STRING_LITERAL),
+      Keyword -> KEYWORDS).flatMap { case (v, ks) => ks.map(k => k -> v)}.toMap
+  }
+}
 
-
-  private def append(map: mutable.Map[IElementType, TextAttributesKey], elementTypes: Array[IElementType], value: TextAttributesKey) {
-		elementTypes.foreach(elementType => map += (elementType -> value))
-	}
-
-	private def append(map: mutable.Map[IElementType, TextAttributesKey], elementType: IElementType, value: TextAttributesKey) {
-		map += (elementType -> value)
-	}
+class CmdSyntaxHighlighterFactory extends SyntaxHighlighterFactory {
+  def getSyntaxHighlighter(project: Project, virtualFile: VirtualFile) = new CmdSyntaxHighlighter
 }

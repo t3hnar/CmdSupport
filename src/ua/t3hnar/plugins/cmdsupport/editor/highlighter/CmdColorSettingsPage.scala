@@ -1,55 +1,57 @@
 package ua.t3hnar.plugins.cmdsupport.editor.highlighter
 
-import com.intellij.openapi.fileTypes.SyntaxHighlighter
 import com.intellij.openapi.options.colors.{ColorSettingsPage, AttributesDescriptor}
-import ua.t3hnar.plugins.cmdsupport.lang.Cmd
-import ua.t3hnar.plugins.cmdsupport.file.CmdFileType
-import ua.t3hnar.plugins.cmdsupport.util.CmdIcon
+import ua.t3hnar.plugins.cmdsupport.CmdFileType
 
 
-protected class CmdColorSettingsPage extends ColorSettingsPage {
+class CmdColorSettingsPage extends ColorSettingsPage {
 
 	def getAdditionalHighlightingTagToDescriptorMap = null
 
-	def getDemoText = "@echo on\n" +
-					"if not exist %JAVA_HOME% goto sethome\n" +
-					"\n" +
-					":sethome\n" +
-					"    rem setting java home\n" +
-					"    set JAVA_HOME=\"java home\"\n" +
-					"    echo JAVA_HOME = %JAVA_HOME%"
+	def getDemoText = """
+    |@echo off
+    |call :power 2 4
+    |echo %result%
+    |rem Prints 16, determined as 2 * 2 * 2 * 2
+    |goto :eof
+    |
+    |rem __Function power______________________
+    |rem Arguments: %1 and %2
+    |:power
+    |setlocal
+    |set counter=%2
+    |set interim_product=%1
+    |:power_loop
+    |if %counter% gtr 1 (
+    |  set /A interim_product = %interim_product% * %1
+    |  set /A counter = %counter% - 1
+    |  goto :power_loop
+    |)
+    |endlocal & set result=%interim_product%
+    |goto :eof
+  """.stripMargin
 
-	def getHighlighter = SyntaxHighlighter.PROVIDER.create(CmdFileType, null, null)
+  def getHighlighter = new CmdSyntaxHighlighter
 
 	def getColorDescriptors = Array.empty
 
-	def getAttributeDescriptors = CmdColorSettingsPage.attributeDescriptors
+  def getIcon = CmdFileType.getIcon
 
-  def getIcon = CmdIcon.file
+  def getDisplayName = "Cmd"
 
-  def getDisplayName = Cmd.languageName
+  def getAttributeDescriptors = Array(
+    new AttributesDescriptor("Brackets", CmdTextAttributes.Comment),
+    new AttributesDescriptor("Braces", CmdTextAttributes.Braces),
+    new AttributesDescriptor("Parenthesis", CmdTextAttributes.Parenths),
+    new AttributesDescriptor("Comment", CmdTextAttributes.Comment),
+    new AttributesDescriptor("Operator", CmdTextAttributes.OperationSign),
+    new AttributesDescriptor("Keyword", CmdTextAttributes.Keyword),
+    new AttributesDescriptor("String", CmdTextAttributes.String),
+    new AttributesDescriptor("Number", CmdTextAttributes.Number),
+    new AttributesDescriptor("Label", CmdTextAttributes.Label),
+    new AttributesDescriptor("Label Reference", CmdTextAttributes.LabelReference),
+    new AttributesDescriptor("Environment Variable", CmdTextAttributes.EnvVariable),
+    new AttributesDescriptor("Environment Definition", CmdTextAttributes.EnvVariableDefinition),
+    new AttributesDescriptor("Variable", CmdTextAttributes.Variable),
+    new AttributesDescriptor("Expression", CmdTextAttributes.Expression))
 }
-
-
-protected object CmdColorSettingsPage {
-
-	private def attributeDescriptors = Array(
-		new AttributesDescriptor("Brackets", CmdTextAttributesKey.comment),
-		new AttributesDescriptor("Braces", CmdTextAttributesKey.braces),
-		new AttributesDescriptor("Parenthesis", CmdTextAttributesKey.parenths),
-		new AttributesDescriptor("Comment", CmdTextAttributesKey.comment),
-		new AttributesDescriptor("Operator", CmdTextAttributesKey.operationSign),
-		new AttributesDescriptor("Keyword", CmdTextAttributesKey.keyword),
-		new AttributesDescriptor("String", CmdTextAttributesKey.string),
-		new AttributesDescriptor("Number", CmdTextAttributesKey.number),
-		new AttributesDescriptor("Label", CmdTextAttributesKey.label),
-		new AttributesDescriptor("Label Reference", CmdTextAttributesKey.labelReference),
-		new AttributesDescriptor("Environment Variable", CmdTextAttributesKey.environmentVariable),
-		new AttributesDescriptor("Environment Definition", CmdTextAttributesKey.environmentVariableDefinition),
-		new AttributesDescriptor("Variable", CmdTextAttributesKey.variable),
-		new AttributesDescriptor("Expression", CmdTextAttributesKey.expression))
-}
-
-
-
-

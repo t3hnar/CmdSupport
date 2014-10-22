@@ -5,4 +5,4 @@ import com.intellij.lexer.FlexAdapter
 
 
 
-class CmdLexer extends FlexAdapter(new _CmdLexer(null.asInstanceOf[Reader]))
+class CmdLexer extends FlexAdapter(new JCmdLexer(null.asInstanceOf[Reader]))

@@ -3,7 +3,7 @@
 	<property name="src.dir" value="src"/>
 
 	<property name="package.dir" value="${src.dir}/ua/t3hnar/plugins/cmdsupport/lang/lexer"/>
-	<property name="lexer.file" value="${package.dir}/_CmdLexer.java"/>
+	<property name="lexer.file" value="${package.dir}/JCmdLexer.java"/>
 	<property name="lexer.log" value="jflex.log"/>
 	<property name="lexer.source" value="${package.dir}/Cmd.flex"/>
 	<property name="lexer.skeleton" value="${jflex.dir}/idea-flex.skeleton"/>

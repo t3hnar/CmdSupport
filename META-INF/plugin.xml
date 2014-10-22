@@ -1,83 +1,84 @@
 <idea-plugin version="2" url="https://github.com/t3hnar/CmdSupport">
-	<name>CMD Support</name>
-	<version>1.0.3</version>
-	<vendor>Yaroslav Klymko aka t3hnar</vendor>
-	<category>Custom Languages</category>
-	<idea-version since-build="135.1230"/>
-	<depends>com.intellij.modules.lang</depends>
+    <name>CMD Support</name>
+    <version>1.0.4</version>
+    <vendor>Yaroslav Klymko aka t3hnar</vendor>
+    <category>Custom Languages</category>
+    <idea-version since-build="135.1230"/>
+    <depends>com.intellij.modules.lang</depends>
 
-	<description>
-		<![CDATA[
-				<html>
-					<body>
-						<h4><strong>CMD Support plugin for Intellij Idea</strong></h4>
-						<ul>
-							<li>Enables highlighting</li>
-							<li>Adds new actions</li>
-						</ul>
-					</body>
-				</html>
-				]]>
-	</description>
+    <description><![CDATA[
+<h1><strong>CMD support plugin for Intellij Idea</strong></h1>
+<br/>
 
-	<change-notes>
-		<![CDATA[
-				<html>
-				    <strong>Changes in version 1.0.4:</strong>
-					<ul>
-						<li>Add new icon</li>
-					</ul>
-				    <strong>Changes in version 1.0.3:</strong>
-					<ul>
-						<li>Make compatible with new Intellij Idea</li>
-					</ul>
-					<strong>Changes in version 1.0.1:</strong>
-					<ul>
-						<li>Added 'Run Cmd Shell action'</li>
-						<li>Added 'Run Cmd Script' action</li>
-					</ul>
+<a href="https://github.com/t3hnar/CmdSupport">Sources</a> |
+<a href="https://github.com/t3hnar/CmdSupport/issues">Issues</a>
+<br/>
+<br/>
 
-					<strong>Changes in version 1.0.0:</strong>
-					<ul>
-						<li>Created cmd highlighting</li>
-					</ul>
-				</html>
-				]]>
-	</change-notes>
+<strong>Features</strong>
+<ul>
+    <li>Enables highlighting</li>
+    <li>Adds new actions</li>
+</ul>
+<br/>
+
+<em>Compiled with Java 1.6</em>
+]]>
+    </description>
+
+    <change-notes><![CDATA[
+<strong>Changes in version 1.0.4:</strong>
+<ul>
+    <li>Add new icon</li>
+    <li>Made compatible with Darcula theme</li>
+    <li>Add 'New cmd script' action</li>
+</ul>
+<strong>Changes in version 1.0.3:</strong>
+<ul>
+    <li>Make compatible with new Intellij Idea</li>
+</ul>
+<strong>Changes in version 1.0.1:</strong>
+<ul>
+    <li>Added 'Run Cmd Shell action'</li>
+    <li>Added 'Run Cmd Script' action</li>
+</ul>
+
+<strong>Changes in version 1.0.0:</strong>
+<ul>
+    <li>Created cmd highlighting</li>
+</ul>
+]]></change-notes>
 
 
-	<application-components>
-		<!-- Add your application components here -->
-	</application-components>
+    <application-components>
+        <!-- Add your application components here -->
+    </application-components>
 
-	<project-components>
-		<!-- Add your project components here -->
-	</project-components>
+    <project-components>
+        <!-- Add your project components here -->
+    </project-components>
 
-	<actions>
-		<!--TODO Implement ParserDef before enabling this action-->
-		<!--<action id="Cmd.NewCmdScript" class="ua.t3hnar.plugins.Cmdsupport.actions.NewCmdFileAction"-->
-		<!--text="Cmd Script" description="Create new Cmd script file">-->
-		<!--<add-to-group group-id="NewGroup" relative-to-action="NewFile" anchor="after"/>-->
-		<!--</action>-->
+    <actions>
+        <group id="Cmd.Group" text="Cmd"
+               class="com.intellij.openapi.actionSystem.DefaultActionGroup">
+            <action id="Cmd.RunCmdScript" class="ua.t3hnar.plugins.cmdsupport.actions.RunCmdScriptAction"/>
+            <action id="Cmd.RunCmdShell" class="ua.t3hnar.plugins.cmdsupport.actions.RunCmdShellAction"/>
+            <add-to-group group-id="ProjectViewPopupMenuRunGroup" anchor="first"/>
+        </group>
+        <action id="Cmd.New" class="ua.t3hnar.plugins.cmdsupport.actions.NewCmdScriptAction">
+            <add-to-group group-id="NewGroup" relative-to-action="NewFile" anchor="after"/>
+        </action>
+    </actions>
 
-		<group id="Cmd.Group" text="Cmd"
-			   class="com.intellij.openapi.actionSystem.DefaultActionGroup">
-			<action id="Cmd.RunCmdScript" class="ua.t3hnar.plugins.cmdsupport.actions.RunCmdScriptAction"/>
-			<action id="Cmd.RunCmdShell" class="ua.t3hnar.plugins.cmdsupport.actions.RunCmdShellAction"/>
-			<add-to-group group-id="ProjectViewPopupMenuRunGroup" anchor="first"/>
-		</group>
-	</actions>
+    <extensions defaultExtensionNs="com.intellij">
+        <colorSettingsPage implementation="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdColorSettingsPage"/>
 
-	<extensions defaultExtensionNs="com.intellij">
-		<colorSettingsPage implementation="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdColorSettingsPage"/>
+        <fileTypeFactory id="CmdFileTypeFactory" implementation="ua.t3hnar.plugins.cmdsupport.CmdFileTypeFactory"/>
 
-		<fileTypeFactory id="CmdFileTypeFactory" implementation="ua.t3hnar.plugins.cmdsupport.file.CmdFileTypeFactory"/>
+        <lang.syntaxHighlighterFactory key="Cmd"
+                                       implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdSyntaxHighlighterFactory"/>
 
-		<lang.syntaxHighlighterFactory key="Cmd"
-									   implementationClass="ua.t3hnar.plugins.cmdsupport.editor.highlighter.CmdSyntaxHighlighterFactory"/>
-
-		<!--<lang.parserDefinition language="Cmd"-->
-		<!--implementationClass="ua.t3hnar.plugins.Cmdsupport.lang.parser.CmdParserDefinition"/>-->
-	</extensions>
+        <!--<lang.parserDefinition language="Cmd"-->
+        <!--implementationClass="ua.t3hnar.plugins.Cmdsupport.lang.parser.CmdParserDefinition"/>-->
+    </extensions>
 </idea-plugin>
