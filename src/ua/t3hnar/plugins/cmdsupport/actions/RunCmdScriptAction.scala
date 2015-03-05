@@ -23,18 +23,20 @@ class RunCmdScriptAction extends AnAction("Run cmd script", "Run cmd script", Cm
   }
 
   override def update(e: AnActionEvent) = {
-    e.getPresentation.setVisible(Cmd.Enabled)
-    e.getPresentation.setEnabled(compatibleFiles(e).nonEmpty)
+    for {project <- Option(e.getData(CommonDataKeys.PROJECT)) if !project.isDefault} {
+      e.getPresentation.setVisible(Cmd.Enabled)
+      e.getPresentation.setEnabled(compatibleFiles(e).nonEmpty)
+    }
   }
 
-  private def compatibleFiles(e: AnActionEvent) = {
-    CommonDataKeys.VIRTUAL_FILE_ARRAY.getData(e.getDataContext) match {
-      case null => Array.empty
-      case files => files.filter { file =>
-        file.getExtension match {
-          case null => false
-          case ext => Cmd.Extensions contains ext.toLowerCase
-        }
+  private def compatibleFiles(e: AnActionEvent): Array[VirtualFile] = {
+    val files = CommonDataKeys.VIRTUAL_FILE_ARRAY.getData(e.getDataContext)
+    (Option(files.asInstanceOf[Array[Any]]) getOrElse Array.empty)
+      .collect { case file: VirtualFile => file}
+      .filter { file =>
+      file.getExtension match {
+        case null => false
+        case ext => Cmd.Extensions contains ext.toLowerCase
       }
     }
   }
