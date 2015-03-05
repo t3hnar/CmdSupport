@@ -1,6 +1,6 @@
 <idea-plugin version="2" url="https://github.com/t3hnar/CmdSupport">
     <name>CMD Support</name>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <vendor>Yaroslav Klymko aka t3hnar</vendor>
     <category>Custom Languages</category>
     <idea-version since-build="135.1230"/>
@@ -27,6 +27,10 @@
     </description>
 
     <change-notes><![CDATA[
+<strong>Changes in version 1.0.5:</strong>
+<ul>
+    <li>Fix annoying exceptions</li>
+</ul>
 <strong>Changes in version 1.0.4:</strong>
 <ul>
     <li>Add new icon</li>
