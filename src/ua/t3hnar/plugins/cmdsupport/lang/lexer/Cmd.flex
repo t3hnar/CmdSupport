@@ -142,7 +142,7 @@ EscapeCharacter = "^".
     {LineTerminator}+   { yybegin(YYINITIAL); return CmdTokenType.WHITE_SPACE; }
     {WhiteSpace}+       { yybegin(IF); return CmdTokenType.WHITE_SPACE; }
     "not"               { yybegin(IF); return CmdTokenType.NOT_KEYWORD; }
-    "exist"             { yybegin(IF_EXIST); return CmdTokenType.EXIST_KEYWORD; }
+    "exists"            { yybegin(IF_EXIST); return CmdTokenType.EXIST_KEYWORD; }
     "errorlevel"        { yybegin(IF_DIGIT); return CmdTokenType.ERRORLEVEL_KEYWORD; }
     "cmdextversion"     { yybegin(IF_DIGIT); return CmdTokenType.CMDEXTVERSION_KEYWORD; }
     "defined"           { yybegin(IF_VARIABLE); return CmdTokenType.DEFINED_KEYWORD; }
