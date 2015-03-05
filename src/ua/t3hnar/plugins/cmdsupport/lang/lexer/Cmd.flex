@@ -4,7 +4,7 @@ import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 %%
 
-%class _CmdLexer
+%class JCmdLexer
 %implements FlexLexer
 %final
 %ignorecase
@@ -15,7 +15,7 @@ import com.intellij.psi.tree.IElementType;
 %eof}
 
 WhiteSpace = [ \t]
-LineTerminator = \r|\n|\r\n
+LineTerminator = \r\n|[\r\n\u2028\u2029\u000B\u000C\u0085]
 StringLiteral = \" ( \\\" | [^\"\n\r] )* \"
 Exp = [^ \t\f\n\r\:\;\,\|\&\<\>]+
 CommandTerminator = "|""|"? | "&""&"? | "<""<"? | ">"">"?
@@ -45,6 +45,7 @@ EscapeCharacter = "^".
 <LABEL> {
     {WhiteSpace}+       { yybegin(LABEL); return CmdTokenType.WHITE_SPACE; }
     {Exp}               { yybegin(REM);  return CmdTokenType.LABEL; }
+    {LineTerminator}+   { return CmdTokenType.BAD_CHARACTER; }
     .                   { yybegin(REM); yypushback(yylength()); }
 }
 
@@ -142,7 +143,7 @@ EscapeCharacter = "^".
     {LineTerminator}+   { yybegin(YYINITIAL); return CmdTokenType.WHITE_SPACE; }
     {WhiteSpace}+       { yybegin(IF); return CmdTokenType.WHITE_SPACE; }
     "not"               { yybegin(IF); return CmdTokenType.NOT_KEYWORD; }
-    "exists"            { yybegin(IF_EXIST); return CmdTokenType.EXIST_KEYWORD; }
+    "exist"             { yybegin(IF_EXIST); return CmdTokenType.EXIST_KEYWORD; }
     "errorlevel"        { yybegin(IF_DIGIT); return CmdTokenType.ERRORLEVEL_KEYWORD; }
     "cmdextversion"     { yybegin(IF_DIGIT); return CmdTokenType.CMDEXTVERSION_KEYWORD; }
     "defined"           { yybegin(IF_VARIABLE); return CmdTokenType.DEFINED_KEYWORD; }

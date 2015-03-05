@@ -22,9 +22,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/jflex" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="IDEA IC-135.1289" jdkType="IDEA JDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="scala-library-2.11" level="application" />
+    <orderEntry type="library" name="scala-sdk-2.11.4" level="application" />
   </component>
 </module>
-
