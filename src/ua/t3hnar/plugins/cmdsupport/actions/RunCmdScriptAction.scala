@@ -16,7 +16,7 @@ class RunCmdScriptAction extends AnAction("Run cmd script", "Run cmd script", Cm
       val documentManager = FileDocumentManager.getInstance()
       documentManager.saveDocument(documentManager.getDocument(file))
       val path = file.getPath
-      Runtime.getRuntime.exec(Array("cmd", "/c", "start", path), null, new File(file.getParent.getPath))
+      Runtime.getRuntime.exec(Array("cmd", "/c", "start", "Run cmd script", path), null, new File(file.getParent.getPath))
     }
 
     files.foreach(file => saveAndRun(file))
